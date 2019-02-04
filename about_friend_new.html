@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的朋友</title>
+<link href="test.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body onLoad="MM_preloadImages('img/btnB1.png','img/btnB2.png','img/btnB3.png','img/btnB4.png','img/btnB5.png')">
+<div id="container">
+  <div id="head_sector"><div align="center"><a href="index.html"><img src="img/logo2.png" width="778" height="99" alt="logo"></a></div>
+  
+  <ul id="navbar">
+  <li><a href="me_new.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('btn','','img/btnB1.png',1)"><img src="img/btn1.png" alt="被" width="120" height="33" id="btn"></a></li>
+  
+  <li><a href="about_friend_new.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','img/btnB2.png',1)"><img src="img/btn2.png" alt="你" width="120" height="33" id="Image3"></a></li>
+  
+  <li><a href="view_new.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','img/btnB3.png',1)"><img src="img/btn3.png" alt="發" width="120" height="33" id="Image4"></a></li>
+  
+  <li><a href="https://github.com/rayrayichiping" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','img/btnB4.png',1)"><img src="img/btn4.png" alt="現" width="120" height="33" id="Image5"></a></li>
+  
+  <li><a href="hw.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','img/btnB5.png',1)"><img src="img/btn5.png" alt="了" width="120" height="33" id="Image6"></a></li>
+  </ul>
+  
+  </div>
+  
+  <div id="content">
+  <div id="text1">章睿恆</div>是一位我在國中時非常要好的一位朋友
+<p>我們從幼稚園大班就認識了，當時我們讀同一所幼稚園但不班，有一次在校外上音樂課時來了一位十分<div id="text2">活潑大方</div>的男孩，那正是睿恆。音樂課的各種活動他都十分有興趣並且很快就融入了班級，上了兩個月後就再也沒看過他了，<br>直到國中，我們又同班了!<br>
+開學剛看到他就覺得似曾相識，沒想到他竟然還記得幼稚園音樂課的事，我們很快就變成了朋友。
+
+<h2>他雖然瘦小，但運動能力卻是一流，對籃球非常有興趣，總是用迅雷不及掩耳的速度衝破對手防線，上籃得分!</h2><p>
+
+國中三年，我們總是一起讀書，一起討論，對課內課外的各種問題皆充滿興趣。<br>三年過去了，他考上雄中，我們仍會在周末約出來跑步,爬山,聊生活近況或是回國中找幾位老師。
+</p>
+<div align="center"><img src="img/friend.jpg" width="350px" ></div>
+  
+  
+</div>
+  
+  
+  
+ <div id="foot_sector">
+ <div id="copyright">© Copyright This website was absolutely made by myself and I want to be a dionsaur.</div>
+  </div>
+  
+</div>
+
+</body>
+</html>
