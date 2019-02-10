@@ -27,10 +27,10 @@
     document.querySelector('#log').textContent = '';
     log('Requesting any Bluetooth Device...');
     navigator.bluetooth.requestDevice({
-     // filters: [...] <- Prefer filters to save energy & show relevant devices.
-        acceptAllDevices: true,
-        optionalServices: [_serv_uuid]
-        })
+        filters: [{
+          services: ['f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b']
+        }]
+     })
     .then(device => {
       log('Connecting to GATT Server...');
       bluetoothDevice = device;
