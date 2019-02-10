@@ -33,6 +33,7 @@
      })
     .then(device => {
       log('Connecting to GATT Server...');
+      log(device.name);
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
       return device.gatt.connect();
