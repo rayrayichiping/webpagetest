@@ -28,6 +28,7 @@
     log('Requesting any Bluetooth Device...');
     navigator.bluetooth.requestDevice({
      filters: [{ services: ['USBeacon16.1'] }]
+    }]
     .then(device => {
       log('Connecting to GATT Server...');
       log(device.name);
