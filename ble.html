@@ -32,10 +32,74 @@
         optionalServices: [_serv_uuid]
         })
     .then(device => {
+      log('Connecting to GATT Server...');
       log(device.name);
       bluetoothDevice = device;
+      bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+      return device.gatt.connect();
     })
-    
+    .then(server => {
+      log('Getting Service...');
+      return server.getPrimaryService(_serv_uuid);
+    })
+    .then(service => {
+      log('Getting Characteristic...');
+      return service.getCharacteristic(_char_uuid);
+    })
+    .then(characteristic => {
+      log('Reading Characteristic values...');
+      myCharacteristic = characteristic;
+      return characteristic.readValue();
+    })
+    .then(value => {
+      log('Value is ' + value.getUint8(0));
+      connected = true;
+      ledValue = value.getUint8(0);
+      _update();
+    })
+    .catch(error => {
+      if (bluetoothDevice && bluetoothDevice.gatt.connected) {
+        bluetoothDevice.gatt.disconnect();
+      }
+      bluetoothDevice = null;
+      connected = false;
+      log("Error:", error); 
+      _update();
+    });
+  }
+  function onDisconnected(event) {
+      log("Disconnected by remote device!"); 
+      bluetoothDevice = null;
+      connected = false;
+      _update();    
+  }
+  function _disconnect() {
+    log("_disconnect");
+    if (!connected) {
+      return;
+    }
+    log('Disconnecting from Bluetooth Device...');
+    if (bluetoothDevice.gatt.connected) {
+      bluetoothDevice.gatt.disconnect();
+    } else {
+      log('> Bluetooth Device is already disconnected');
+    }
+    _update();
+  }
+  function _toggle() {
+    if(!connected)
+      return;
+    ledValue = ledValue == 0 ? 1 : 0;
+    // Writing 1 is the signal to reset energy expended.
+    var v = Uint8Array.of(ledValue);
+    myCharacteristic.writeValue(v)
+    .then(_ => {
+      log('toggle done, new value is ' + ledValue);
+    })
+    .catch(error => { 
+      log(error); 
+    });
+  }
   function _update()
   {
     if(!navigator.bluetooth) {
