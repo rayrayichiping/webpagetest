@@ -28,7 +28,6 @@
     document.querySelector('#log').textContent = '';
     log('Requesting any Bluetooth Device...');
     navigator.bluetooth.requestDevice({
-        acceptAllDevices: true,
         optionalServices: [_serv_uuid]
         })
     .then(device => {
