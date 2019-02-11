@@ -29,7 +29,7 @@
     log('Requesting any Bluetooth Device...');
     navigator.bluetooth.requestDevice({ 
       filters: [{
-      {services: [0x004C]}           
+      {services: [_serv_uuid,connectable_uuid]}           
     }) 
     .then(device => {
       log('Connecting to GATT Server...');
