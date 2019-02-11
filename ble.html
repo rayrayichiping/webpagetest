@@ -61,20 +61,6 @@
       _update();
     });
   }
-  function onDisconnected(event) {
-      bluetoothDevice = null;
-      connected = false;
-      _update();    
-  }
-  function _disconnect() {
-    if (!connected) {
-      return;
-    }
-    if (bluetoothDevice.gatt.connected) {
-      bluetoothDevice.gatt.disconnect();
-    } 
-    _update();
-  }
   function _update()
   {
     if(!navigator.bluetooth) {
