@@ -64,6 +64,9 @@
   }
   function _update()
   {
+    if(device.name=='USBeacon16.1'){
+     log("LOBBY"); 
+    }
     if(!navigator.bluetooth) {
       document.querySelector('#state').innerText = "Not supported!";
       document.querySelector('#hint').innerText = "Hint: Web Bluetooth API is not available on current browser";
