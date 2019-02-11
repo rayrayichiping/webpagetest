@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Linkit 7697 Web BLE</title>
@@ -11,6 +11,7 @@
   <script>
   var _serv_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var _char_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
+  var connectable_uuid='b2ddb4cc-9997-4c4c-9a0d-cc03f084a656'.toLowerCase();
   var bluetoothDevice = null;
   var connected = false;
   var ledValue;
@@ -27,9 +28,9 @@
     document.querySelector('#log').textContent = '';
     log('Requesting any Bluetooth Device...');
     navigator.bluetooth.requestDevice({ 
-      filters: [
+      filters: [{
       {services: [0x004C]},
-      {name:['USBeacon16.1']} 
+      {name:['USBeacon16.1']},           
     }) 
     .then(device => {
       log('Connecting to GATT Server...');
