@@ -24,13 +24,13 @@
     document.querySelector('#log').textContent += line + '\n';
     console.log(line);
   }
-  function _connect() {
+   function _connect() {
     document.querySelector('#log').textContent = '';
     log('Requesting any Bluetooth Device...');
-   navigator.bluetooth.requestDevice({
-	acceptAllDevices: true,
-        optionalServices: [_serv_uuid,connectable_uuid]
-   });
+    navigator.bluetooth.requestDevice({
+        acceptAllDevices: true,
+        optionalServices: [_serv_uuid]
+        })
     .then(device => {
       log('Connecting to GATT Server...');
       log(device.name);
