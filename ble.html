@@ -34,8 +34,11 @@
     .then(device => {
       log('Connecting to GATT Server...');
       log(device.name);
-      if(device.name=='USBeacon16.1'){
+      
+      if(device.name=='USBeacon16.1')
+      {
       log('LOBBY'); 
+      }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
       return device.gatt.connect();
