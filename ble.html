@@ -34,6 +34,8 @@
     .then(device => {
       log('Connecting to GATT Server...');
       log(device.name);
+      if(device.name=='USBeacon16.1'){
+      log('LOBBY'); 
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
       return device.gatt.connect();
@@ -64,10 +66,8 @@
   }
   function _update()
   {
-    if(device.name=='USBeacon16.1'){
-     log("LOBBY"); 
-    }
-    if(!navigator.bluetooth) {
+    if(!navigator.bluetooth) 
+    {
       document.querySelector('#state').innerText = "Not supported!";
       document.querySelector('#hint').innerText = "Hint: Web Bluetooth API is not available on current browser";
       document.querySelector('#connect').classList.add("disabled");
