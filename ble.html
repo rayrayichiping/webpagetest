@@ -37,7 +37,8 @@
       
       if(device.name=='USBeacon16.1')
       {
-      log('LOBBY'); 
+      log('LOBBY');
+      log('navegating to goal');      
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -98,7 +99,13 @@
       document.querySelector('#toggle').classList.add("disabled");
       document.querySelector('#toggle').classList.remove("btn-primary");
     }
-  }
+    
+    function getBuilding()
+    {
+            //  讀取select的值
+            var building = select.building.value;
+            alert(building);
+    }
   </script>
 
 </head>
@@ -110,9 +117,14 @@
   </div>
   <div class="row">
     <div class="col-sm-3">
-      <button id='connect' type="button" class="btn btn-block">Connect</button>
+      <select name="building">
+            <option value="百齡">百齡</option>
+            <option value="中正">中正</option>
+            <option value="莊敬">莊敬</option>
+      </select>
+      <button onclick="getBuilding()">取得大樓</button>
       <br>
-      <button id='toggle' type="button" class="btn btn-block">Toggle</button>
+      <button id='connect' type="button" class="btn btn-block">下一步</button>
     </div>
     <div class="col-sm-9">
       <h4 id='state'></h4>
