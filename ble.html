@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>indoor navigation</title>
   <meta charset="utf-8">
@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script>
+  <script type="text/javascript">
   var _serv_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var _char_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var connectable_uuid='b2ddb4cc-9997-4c4c-9a0d-cc03f084a656'.toLowerCase();
@@ -37,7 +37,8 @@
       
       if(device.name=='USBeacon16.1')
       {
-      log('LOBBY'); 
+      log('LOBBY');
+      log('navegating to goal');      
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -95,11 +96,9 @@
       document.querySelector('#connect').classList.add("btn-primary");
       document.querySelector('#state').innerText = "Disconnected";
       document.querySelector('#hint').innerText = "Hint: Press Connect to connect to LinkIt 7697";
-      document.querySelector('#toggle').classList.add("disabled");
-      document.querySelector('#toggle').classList.remove("btn-primary");
     }
-  }
-  </script>
+  }  
+</script>
 
 </head>
 <body onload='_update()'>
@@ -108,12 +107,48 @@
   <div class="page-header">
     <h2>Web BLE demo</h2>
   </div>
+
   <div class="row">
     <div class="col-sm-3">
-      <button id='connect' type="button" class="btn btn-block">Connect</button>
+      <form>
+      <p>請選擇建築</p>
+      <select id="building-list" onchange="changeBuilding(this.selectedIndex)"></select>
       <br>
-      <button id='toggle' type="button" class="btn btn-block">Toggle</button>
+      <br>
+      <p>請選擇教室</p>
+      <select id="room-list"></select>
+      </form>
+
+      <script type="text/javascript">
+      var building=['百齡大樓','中正大樓','莊敬大樓'];
+      var buildingSelect=document.getElementById("building-list");
+      var inner="";
+      for(var i=0;i<building.length;i++){
+        inner=inner+'<option value=i>'+building[i]+'</option>';
+      }
+      buildingSelect.innerHTML=inner;
+      
+      
+      var room=new Array();
+      room[0]=['1501','1502' ,'1503'];
+      room[1]=['101','102' ,'103'];
+      room[2]=['201','202' ,'203'];
+      function changeBuilding(index){
+        var Sinner="";
+        for(var i=0;i<room[index].length;i++){
+          Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
+        }
+        var roomSelect=document.getElementById("room-list");
+        roomSelect.innerHTML=Sinner;
+      }
+      changeBuilding(document.getElementById("building-list").selectedIndex);
+    </script>
+
+
+    <br>
+    <button id='connect' type="button" class="btn btn-block">下一步</button>
     </div>
+
     <div class="col-sm-9">
       <h4 id='state'></h4>
       <div id='hint'></div>
