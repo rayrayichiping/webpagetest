@@ -37,8 +37,7 @@
       
       if(device.name=='USBeacon16.1')
       {
-      log('LOBBY');
-      log('navegating to goal');      
+      log('LOBBY'); 
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -98,7 +97,8 @@
       document.querySelector('#hint').innerText = "Hint: Press Connect to connect to LinkIt 7697";
       document.querySelector('#toggle').classList.add("disabled");
       document.querySelector('#toggle').classList.remove("btn-primary");
-    } 
+    }
+  }
   </script>
 
 </head>
@@ -110,14 +110,9 @@
   </div>
   <div class="row">
     <div class="col-sm-3">
-      <select name="building">
-            <option value="百齡">百齡</option>
-            <option value="中正">中正</option>
-            <option value="莊敬">莊敬</option>
-      </select>
-      <button onclick="getBuilding()">取得大樓</button>
+      <button id='connect' type="button" class="btn btn-block">Connect</button>
       <br>
-      <button id='connect' type="button" class="btn btn-block">下一步</button>
+      <button id='toggle' type="button" class="btn btn-block">Toggle</button>
     </div>
     <div class="col-sm-9">
       <h4 id='state'></h4>
