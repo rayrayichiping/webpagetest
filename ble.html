@@ -73,7 +73,7 @@
     if(!navigator.bluetooth) 
     {
       document.querySelector('#state').innerText = "Not supported!";
-      document.querySelector('#hint').innerText = "Hint: Web Bluetooth API is not available on current browser";
+      document.querySelector('#hint').innerText = "不支援ios及chrome以外瀏覽器";
       document.querySelector('#connect').classList.add("disabled");
       document.querySelector('#toggle').classList.add("disabled");
       return;
@@ -94,8 +94,8 @@
       document.querySelector('#connect').onclick = _connect;
       document.querySelector('#connect').innerText = "Connect";
       document.querySelector('#connect').classList.add("btn-primary");
-      document.querySelector('#state').innerText = "Disconnected";
-      document.querySelector('#hint').innerText = "Hint: Press Connect to connect to LinkIt 7697";
+      document.querySelector('#state').innerText = "點選按鈕開始導航";
+      document.querySelector('#hint').innerText = "不支援ios及chrome以外瀏覽器";
     }
   }  
 </script>
