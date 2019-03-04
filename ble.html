@@ -26,13 +26,12 @@
   }
    function _connect() {
     document.querySelector('#log').textContent = '';
-    log('Requesting any Bluetooth Device...');
+    log('123456789');
     navigator.bluetooth.requestDevice({
       acceptAllDevices: true,  
       optionalServices: [_serv_uuid]
         })
     .then(device => {
-      log('Connecting to GATT Server...');
       log(device.name);
       
       if(device.name=='USBeacon16.1')
@@ -94,7 +93,7 @@
       document.querySelector('#connect').onclick = _connect;
       document.querySelector('#connect').innerText = "Connect";
       document.querySelector('#connect').classList.add("btn-primary");
-      document.querySelector('#state').innerText = "Disconnected";
+      document.querySelector('#state').innerText = "";
       document.querySelector('#hint').innerText = "Hint: Press Connect to connect to LinkIt 7697";
     }
   }  
@@ -147,11 +146,11 @@
 
 
     <br>
-    <button id='connect' type="button" class="btn btn-block">下一步</button>
+    <button id='connect' type="button" class="btn btn-block"> 下一步 </button>
     </div>
 
     <div class="col-sm-9">
-      <h4 id='state'></h4>
+      <h4 id='state'>輕先開起藍芽點選下一步</h4>
       <div id='hint'></div>
       <h4>狀態:</h4>
       <pre id='log'></pre>
