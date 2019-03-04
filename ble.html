@@ -37,8 +37,8 @@
       
       if(device.name=='USBeacon16.1')
       {
-      log('LOBBY');
-      log('navegating to goal');      
+      log('目前位置:川堂');
+      log('點選下一步');      
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -120,7 +120,7 @@
       </form>
 
       <script type="text/javascript">
-      var building=['百齡大樓','中正大樓','莊敬大樓'];
+      var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
       var buildingSelect=document.getElementById("building-list");
       var inner="";
       for(var i=0;i<building.length;i++){
@@ -130,9 +130,10 @@
       
       
       var room=new Array();
-      room[0]=['1501','1502' ,'1503'];
+      room[0]=['1402','1403','1406','1501','1502','1505','1506'];
       room[1]=['101','102' ,'103'];
       room[2]=['201','202' ,'203'];
+      room[3]=['201','202' ,'203'];
       function changeBuilding(index){
         var Sinner="";
         for(var i=0;i<room[index].length;i++){
