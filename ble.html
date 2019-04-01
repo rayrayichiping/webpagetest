@@ -28,7 +28,10 @@
     document.querySelector('#log').textContent = '';
     log('123456789');
     navigator.bluetooth.requestDevice({
-      acceptAllDevices: true,  
+      filters: [
+    {services: ['f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b']},
+    {name: 'USBeacon16.1'},    
+  ],  
       optionalServices: [_serv_uuid]
         })
     .then(device => {
@@ -150,7 +153,7 @@
     </div>
 
     <div class="col-sm-9">
-      <h4 id='state'>輕先開起藍芽點選下一步</h4>
+      <h4 id='state'>請先開起藍芽點選下一步</h4>
       <div id='hint'></div>
       <h4>狀態:</h4>
       <pre id='log'></pre>
