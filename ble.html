@@ -13,6 +13,7 @@
   var _char_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var connectable_uuid='b2ddb4cc-9997-4c4c-9a0d-cc03f084a656'.toLowerCase();
   var filterName = 'USBeacon16.1';
+  var goal = '1501';
   var bluetoothDevice = null;
   var connected = false;
   var ledValue;
@@ -103,6 +104,32 @@
    {
     
    } 
+    
+    
+  var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
+  var buildingSelect=document.getElementById("building-list");
+  var inner="";
+  for(var i=0;i<building.length;i++){
+    inner=inner+'<option value=i>'+building[i]+'</option>';
+  }
+  buildingSelect.innerHTML=inner;
+      
+      
+  var room=new Array();
+  room[0]=['1402','1403','1406','1501','1502','1505','1506'];
+  room[1]=['101','102','103','104','105','106','107','108','113','202','203','204','205','206','207','208','212','214','215'];
+  room[2]=['206','301' ,'303','304','305','306','307','308','312','313','314','315','316','317'];
+  room[3]=['213','216','217','318'];
+    
+  function changeBuilding(index){
+  var Sinner="";
+  for(var i=0;i<room[index].length;i++){
+      Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
+  }
+      var roomSelect=document.getElementById("room-list");
+   roomSelect.innerHTML=Sinner;
+  }
+      changeBuilding(document.getElementById("building-list").selectedIndex);
 </script>
 
 </head>
@@ -125,29 +152,7 @@
       </form>
 
       <script type="text/javascript">
-      var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
-      var buildingSelect=document.getElementById("building-list");
-      var inner="";
-      for(var i=0;i<building.length;i++){
-        inner=inner+'<option value=i>'+building[i]+'</option>';
-      }
-      buildingSelect.innerHTML=inner;
       
-      
-      var room=new Array();
-      room[0]=['1402','1403','1406','1501','1502','1505','1506'];
-      room[1]=['101','102','103','104','105','106','107','108','113','202','203','204','205','206','207','208','212','214','215'];
-      room[2]=['206','301' ,'303','304','305','306','307','308','312','313','314','315','316','317'];
-      room[3]=['213','216','217','318'];
-      function changeBuilding(index){
-        var Sinner="";
-        for(var i=0;i<room[index].length;i++){
-          Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
-        }
-        var roomSelect=document.getElementById("room-list");
-        roomSelect.innerHTML=Sinner;
-      }
-      changeBuilding(document.getElementById("building-list").selectedIndex);
     </script>
 
 
