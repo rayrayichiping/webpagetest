@@ -12,6 +12,7 @@
   var _serv_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var _char_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var connectable_uuid='b2ddb4cc-9997-4c4c-9a0d-cc03f084a656'.toLowerCase();
+  var filterName = 'USBeacon16.1';
   var bluetoothDevice = null;
   var connected = false;
   var ledValue;
@@ -26,11 +27,10 @@
   }
    function _connect() {
     document.querySelector('#log').textContent = '';
-    log('123456789');
+    alert("請先步行至川堂並點選連接USBeacon16.1")
     navigator.bluetooth.requestDevice({
       filters: [
-    {services: ['f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b']},
-    {name: 'USBeacon16.1'},    
+    {name:filterName},    
   ],  
       optionalServices: [_serv_uuid]
         })
@@ -97,7 +97,7 @@
       document.querySelector('#connect').innerText = "下一步";
       document.querySelector('#connect').classList.add("btn-primary");
       document.querySelector('#state').innerText = "";
-      document.querySelector('#hint').innerText = "請先開起藍芽點選下一步";
+      document.querySelector('#hint').innerText = "請先開起藍芽並點選下一步";
     }
   }  
 </script>
