@@ -35,8 +35,6 @@
       optionalServices: [_serv_uuid]
         })
     .then(device => {
-      log(device.name);
-      
       if(device.name=='USBeacon16.1')
       {
       log('目前位置:川堂');
@@ -99,7 +97,12 @@
       document.querySelector('#state').innerText = "";
       document.querySelector('#hint').innerText = "請先開起藍芽並點選下一步";
     }
-  }  
+  }
+    
+   function navigation()
+   {
+    
+   } 
 </script>
 
 </head>
