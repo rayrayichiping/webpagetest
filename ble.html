@@ -42,7 +42,8 @@
   }
       changeBuilding(document.getElementById("building-list").selectedIndex);
     
-  function log(v)
+  /*
+    function log(v)
   {
     var line = Array.prototype.slice.call(arguments).map(function(argument) {
       return typeof argument === 'string' ? argument : JSON.stringify(argument);
@@ -85,7 +86,7 @@
       _update();
     });
   }
-    
+*/    
   function _update()
   {
     if(!navigator.bluetooth) 
@@ -116,7 +117,7 @@
       document.querySelector('#hint').innerText = "請先開起藍芽並點選下一步";
     }
   }
-    
+ /*   
   function def_location(B,R)
   {
      if (B == '百齡大樓') {
@@ -126,6 +127,8 @@
        }
      }
   }
+  
+*/
     
 </script>
 </head>
