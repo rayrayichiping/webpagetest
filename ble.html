@@ -19,7 +19,7 @@
   var connected = false;
   var ledValue;
   var myCharacteristic;
-   var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
+  var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
   var buildingSelect=document.getElementById("building-list");
   var inner="";
   for(var i=0;i<building.length;i++){
@@ -67,7 +67,7 @@
         log('點選下一步');
       }
       else{
-       location(building,room);
+       def_location(building,room);
         log(building);
         log(room);
       } 
@@ -117,7 +117,7 @@
     }
   }
     
-  function location(B,R)
+  function def_location(B,R)
   {
      if (B == '百齡大樓') {
        if(R =='1501'){
