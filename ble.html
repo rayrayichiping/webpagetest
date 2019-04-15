@@ -39,14 +39,14 @@
       optionalServices: [_serv_uuid]
         })
     .then(device => {
-      if(device.name=='USBeacon16.1')
-      {
-      log('目前位置:川堂');
-      log('點選下一步');
+      if(device.name=='USBeacon16.1'){
+        log('目前位置:川堂');
+        log('點選下一步');
       }
       else{
         location(building,room);
-        log(building,room);
+        log(building);
+        log(room);
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -102,12 +102,6 @@
        }
      }
    }
-    
-  function navigation (building,room){
-    
-  
-  }
-    
     
   var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
   var buildingSelect=document.getElementById("building-list");
