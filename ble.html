@@ -13,36 +13,13 @@
   var _char_uuid = 'f1b8f22f-4fc4-472c-86d5-eb3a52f63f4b'.toLowerCase();
   var connectable_uuid='b2ddb4cc-9997-4c4c-9a0d-cc03f084a656'.toLowerCase();
   var filterName = 'USBeacon16.1';
-  var building = '0';
-  var room ='0';
+  var goal_building = '0';
+  var goal_room ='0';
   var bluetoothDevice = null;
   var connected = false;
   var ledValue;
   var myCharacteristic;
-  var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
-  var buildingSelect=document.getElementById("building-list");
-  var inner="";
-  for(var i=0;i<building.length;i++){
-    inner=inner+'<option value=i>'+building[i]+'</option>';
-  }
-  buildingSelect.innerHTML=inner;    
-  var room=new Array();
-  room[0]=['1402','1403','1406','1501','1502','1505','1506'];
-  room[1]=['101','102','103','104','105','106','107','108','113','202','203','204','205','206','207','208','212','214','215'];
-  room[2]=['206','301' ,'303','304','305','306','307','308','312','313','314','315','316','317'];
-  room[3]=['213','216','217','318'];
-    
-  function changeBuilding(index){
-  var Sinner="";
-  for(var i=0;i<room[index].length;i++){
-      Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
-  }
-      var roomSelect=document.getElementById("room-list");
-   roomSelect.innerHTML=Sinner;
-  }
-      changeBuilding(document.getElementById("building-list").selectedIndex);
-    
-  /*
+  
     function log(v)
   {
     var line = Array.prototype.slice.call(arguments).map(function(argument) {
@@ -86,7 +63,7 @@
       _update();
     });
   }
-*/    
+   
   function _update()
   {
     if(!navigator.bluetooth) 
@@ -117,18 +94,42 @@
       document.querySelector('#hint').innerText = "請先開起藍芽並點選下一步";
     }
   }
- /*   
+  
   function def_location(B,R)
   {
      if (B == '百齡大樓') {
        if(R =='1501'){
-          building = 1 ;
-          room = 5 ;
+          goal_building = 1 ;
+          goal_room = 5 ;
        }
      }
   }
   
-*/
+
+    
+  var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
+  var buildingSelect=document.getElementById("building-list");
+  var inner="";
+    
+  for(var i=0;i<building.length;i++){
+    inner=inner+'<option value=i>'+building[i]+'</option>';
+  }
+  buildingSelect.innerHTML=inner;    
+  var room=new Array();
+  room[0]=['1402','1403','1406','1501','1502','1505','1506'];
+  room[1]=['101','102','103','104','105','106','107','108','113','202','203','204','205','206','207','208','212','214','215'];
+  room[2]=['206','301' ,'303','304','305','306','307','308','312','313','314','315','316','317'];
+  room[3]=['213','216','217','318'];
+    
+  function changeBuilding(index){
+  var Sinner="";
+  for(var i=0;i<room[index].length;i++){
+      Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
+  }
+      var roomSelect=document.getElementById("room-list");
+   roomSelect.innerHTML=Sinner;
+  }
+      changeBuilding(document.getElementById("building-list").selectedIndex);   
     
 </script>
 </head>
