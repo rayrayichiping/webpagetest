@@ -45,21 +45,7 @@
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
       return device.gatt.connect();
     })
-    .then(server => {
-      return server.getPrimaryService(_serv_uuid);
-    })
-    .then(service => {
-      return service.getCharacteristic(_char_uuid);
-    })
-    .then(characteristic => {
-      myCharacteristic = characteristic;
-      return characteristic.readValue();
-    })
-    .then(value => {
-      connected = true;
-      ledValue = value.getUint8(0);
-      _update();
-    })
+    
     .catch(error => {
       if (bluetoothDevice && bluetoothDevice.gatt.connected) {
         bluetoothDevice.gatt.disconnect();
