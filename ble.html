@@ -101,10 +101,27 @@
           goal_room = 5 ;
        }
      }
-  }
-  
+  } 
+</script>
+</head>
+<body onload='_update()'>
 
-    
+<div class="container">
+  <div class="page-header">
+    <h2>找教室</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <form>
+      <p>請選擇建築</p>
+      <select id="building-list" onchange="changeBuilding(this.selectedIndex)"></select>
+      <br>
+      <br>
+      <p>請選擇教室</p>
+      <select id="room-list"></select>
+      </form>
+  <script type="text/javascript">  
   var building=['百齡大樓','中正大樓','莊敬大樓','自強大樓'];
   var buildingSelect=document.getElementById("building-list");
   var inner="";  
@@ -128,26 +145,8 @@
    roomSelect.innerHTML=Sinner;
   }
       changeBuilding(document.getElementById("building-list").selectedIndex);   
+  </script>
     
-</script>
-</head>
-<body onload='_update()'>
-
-<div class="container">
-  <div class="page-header">
-    <h2>找教室</h2>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-3">
-      <form>
-      <p>請選擇建築</p>
-      <select id="building-list" onchange="changeBuilding(this.selectedIndex)"></select>
-      <br>
-      <br>
-      <p>請選擇教室</p>
-      <select id="room-list"></select>
-      </form>
     <br>
     <button id='connect' type="button" class="btn btn-block"> 下一步 </button>
     </div>
