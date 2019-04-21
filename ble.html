@@ -43,7 +43,6 @@
         log('點選下一步');
       }
       else{
-       def_location(building,room);
         log(goal_building);
         log(goal_room);
       } 
@@ -90,17 +89,15 @@
       document.querySelector('#connect').classList.add("btn-primary");
       document.querySelector('#state').innerText = "";
       document.querySelector('#hint').innerText = "請先開起藍芽並點選下一步";
+      document.querySelector('#goal').onclick = def_location;
     }
   }
   
-  function def_location(B,R)
+  function def_location()
   {
-     if (B == '百齡大樓') {
-       if(R =='1501'){
-          goal_building = 1 ;
-          goal_room = 5 ;
-       }
-     }
+     goal_building=document.getElementById("building-list").value;
+     goal_building=document.getElementById("room-list").value;
+    
   } 
 </script>
 </head>
@@ -148,6 +145,7 @@
   </script>
     
     <br>
+    <button id='goal' type="button" class="btn btn-block"> 確定 </button>
     <button id='connect' type="button" class="btn btn-block"> 下一步 </button>
     </div>
 
