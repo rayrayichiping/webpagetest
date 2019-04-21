@@ -139,8 +139,10 @@
       Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
   }
       var roomSelect=document.getElementById("room-list");
+      goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
+      goal_room=roomSelect.options[roomSelect.selectedIndex].text;
    roomSelect.innerHTML=Sinner;
-    goal_building=document.getElementById("building-list");
+    
     goal_building=document.getElementById("room-list");
   }
       changeBuilding(document.getElementById("building-list").selectedIndex);
