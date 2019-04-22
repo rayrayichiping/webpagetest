@@ -101,27 +101,30 @@
     
   function navigation_floor(B,R)
     {
-      if(B=='百齡大樓' && filterName=='USBeacon16.1')
+      if(B=='百齡大樓' && device.name=='USBeacon16.1')
       {
         log('請左轉走到樓梯並點選下一步並連接USBeacon1.2');
         filterName='USBeacon1.2';
+        
+        if(device.name=='USBeacon1.2')
+        {
+          log('請上'+R.silce(1,2)+'樓點選下一步並連接USBeacon1.3');
+          filterName='USBeacon1.3';
+        }
+        
+        if(device.name=='USBeacon1.3')
+        {
+          if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
+          {
+            log('請左轉並直走');
+          }
+          else
+          {
+            log('目標在前方或左前方')
+          }
       }
       
-      if(filterName=='USBeacon1.2')
-      {
-        log('請上'+R.silce(1,2)+'樓點選下一步並連接USBeacon1.3');
-        filterName='USBeacon1.3';
-      }
-      if(filterName=='USBeacon1.3')
-      {
-        if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
-        {
-          log('請左轉並直走');
-        }
-        else
-        {
-          log('目標在前方或左前方')
-        }
+      
       }
       
     }
