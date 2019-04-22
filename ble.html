@@ -98,8 +98,33 @@
   function def_goal()
   {
      log('目的地:'+goal_building+goal_room);
-     log('點選下一步')
+     log('點選下一步');
   } 
+    
+  function navigation_floor(B,R)
+    {
+      if(B=='百齡大樓' and filterName=='USBeacon16.1')
+      {
+        log('請左轉走到樓梯並點選下一步並連接USBeacon1.2');
+        filterName='USBeacon1.2';
+      }
+      
+      if(filterName=='USBeacon1.2')
+      {
+        log('請上'+R.silce(1,2)+'樓點選下一步並連接USBeacon1.5');
+        filterName='USBeacon1.5'
+      }
+      if(filterName=='USBeacon1.5')
+      {
+        if(R.slice(3,4)=='1' or R.slice(3,4)=='2')
+        {
+          log('請左轉並直走');
+        }
+      }
+      
+    }
+    
+    
 </script>
 </head>
 <body onload='_update()'>
