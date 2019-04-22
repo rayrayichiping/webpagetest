@@ -43,8 +43,7 @@
         log('點選下一步');
       }
       else{
-        log(goal_building);
-        log(goal_room);
+        navigation_floor(goal_building,goal_room);
       } 
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
