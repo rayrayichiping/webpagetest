@@ -218,6 +218,16 @@
       Sinner=Sinner+'<option value=i>'+room[buildingSelect.selectedIndex][i]+'</option>';
   }
     roomSelect.innerHTML=Sinner;
+    
+  function changeBuilding(index){
+  var Sinner="";
+  var roomSelect=document.getElementById("room-list");
+  for(var i=0;i<room[index].length;i++){
+      Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
+  }
+    roomSelect.innerHTML=Sinner;
+  }
+    changeBuilding(document.getElementById("building-list").selectedIndex);
     goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
     goal_room=document.getElementById("room-list").selectedIndex;
   </script>
