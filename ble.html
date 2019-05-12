@@ -214,12 +214,12 @@
     
   function changeBuilding(index){
   var Sinner="";
+  var roomSelect=document.getElementById("room-list");
   for(var i=0;i<room[index].length;i++){
       Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
   }
-    var roomSelect=document.getElementById("room-list");
-    goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
     roomSelect.innerHTML=Sinner;
+    goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
     goal_room=roomSelect.options[roomSelect.selectedIndex].text;
   }
       changeBuilding(document.getElementById("building-list").selectedIndex);
