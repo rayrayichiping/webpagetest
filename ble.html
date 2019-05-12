@@ -219,10 +219,11 @@
   }
     var roomSelect=document.getElementById("room-list");
     goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
+    goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
    roomSelect.innerHTML=Sinner;
   }
       changeBuilding(document.getElementById("building-list").selectedIndex);
-      goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
+      
   </script>
     
     <br>
