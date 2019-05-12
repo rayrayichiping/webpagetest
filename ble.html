@@ -56,6 +56,60 @@
       }
       bluetoothDevice = null;
       connected = false;
+    });
+  }
+    
+  function _connect1() {
+    document.querySelector('#log').textContent = '';
+    alert('請左轉走到樓梯並點選下一步並連接USBeacon1.2');
+    navigator.bluetooth.requestDevice({
+      filters: [
+    {name:filterName},    
+  ],  
+      optionalServices: [_serv_uuid]
+        })
+    .then(device => {
+      if(device.name=='USBeacon1.2'){
+        navigation_floor(goal_building,goal_room);
+      }
+      bluetoothDevice = device;
+      bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+      return device.gatt.connect();
+    })
+    
+    .catch(error => {
+      if (bluetoothDevice && bluetoothDevice.gatt.connected) {
+        bluetoothDevice.gatt.disconnect();
+      }
+      bluetoothDevice = null;
+      connected = false;
+    });
+  }
+    
+  function _connect2() {
+    document.querySelector('#log').textContent = '';
+    alert('請上'+goal_building.silce(1,2)+'樓點選下一步並連接USBeacon1.3');
+    navigator.bluetooth.requestDevice({
+      filters: [
+    {name:filterName},    
+  ],  
+      optionalServices: [_serv_uuid]
+        })
+    .then(device => {
+      if(device.name=='USBeacon1.3'){
+        navigation_floor(goal_building,goal_room);
+      }
+      bluetoothDevice = device;
+      bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+      return device.gatt.connect();
+    })
+    
+    .catch(error => {
+      if (bluetoothDevice && bluetoothDevice.gatt.connected) {
+        bluetoothDevice.gatt.disconnect();
+      }
+      bluetoothDevice = null;
+      connected = false;
       _update();
     });
   }
@@ -103,28 +157,26 @@
     {
       if(B=='百齡大樓' && device.name=='USBeacon16.1')
       {
-        log('請左轉走到樓梯並點選下一步並連接USBeacon1.2');
         filterName='USBeacon1.2';
+        document.querySelector('#connect').onclick = _connect1;
+      if(device.name=='USBeacon1.2')
+      {
+        filterName='USBeacon1.3';
+      }
         
-        if(device.name=='USBeacon1.2')
+      if(device.name=='USBeacon1.3')
+      {
+        if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
         {
-          log('請上'+R.silce(1,2)+'樓點選下一步並連接USBeacon1.3');
-          filterName='USBeacon1.3';
+          log('請左轉並直走');
         }
-        
-        if(device.name=='USBeacon1.3')
+        else
         {
-          if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
-          {
-            log('請左轉並直走');
-          }
-          else
-          {
-            log('目標在前方或左前方')
-          }
+          log('目標在前方或左前方')
         }
       }
     }
+  }
     
     
 </script>
