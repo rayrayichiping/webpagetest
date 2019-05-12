@@ -41,10 +41,8 @@
       if(device.name=='USBeacon16.1'){
         log('目前位置:川堂');
         log('點選下一步');
-      }
-      else{
         navigation_floor(goal_building,goal_room);
-      } 
+      }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
       return device.gatt.connect();
