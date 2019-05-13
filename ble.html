@@ -205,7 +205,7 @@
     inner=inner+'<option value=i>'+building[i]+'</option>';
   }
   buildingSelect.innerHTML=inner;
-  goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;  
+  
   
   var room=new Array();
   room[0]=['1402','1403','1406','1501','1502','1505','1506'];
@@ -213,19 +213,18 @@
   room[2]=['206','301' ,'303','304','305','306','307','308','312','313','314','315','316','317'];
   room[3]=['213','216','217','318'];
     
-  
-    
-    
   function changeBuilding(index){
   var Sinner="";
   var roomSelect=document.getElementById("room-list");
   for(var i=0;i<room[index].length;i++){
       Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
   }
-    roomSelect.innerHTML=Sinner;
+    goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
     goal_room=document.getElementById("room-list").selectedIndex;
+    roomSelect.innerHTML=Sinner;    
   }
     changeBuilding(document.getElementById("building-list").selectedIndex);
+    
     
     
   </script>
