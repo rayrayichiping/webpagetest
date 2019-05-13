@@ -204,7 +204,8 @@
   for(var i=0;i<building.length;i++){
     inner=inner+'<option value=i>'+building[i]+'</option>';
   }
-  buildingSelect.innerHTML=inner;  
+  buildingSelect.innerHTML=inner;
+  goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;  
   
   var room=new Array();
   room[0]=['1402','1403','1406','1501','1502','1505','1506'];
@@ -219,6 +220,7 @@
   }
     roomSelect.innerHTML=Sinner;
     
+    
   function changeBuilding(index){
   var Sinner="";
   var roomSelect=document.getElementById("room-list");
@@ -226,10 +228,11 @@
       Sinner=Sinner+'<option value=i>'+room[index][i]+'</option>';
   }
     roomSelect.innerHTML=Sinner;
+    goal_room=document.getElementById("room-list").selectedIndex;
   }
     changeBuilding(document.getElementById("building-list").selectedIndex);
-    goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
-    goal_room=document.getElementById("room-list").selectedIndex;
+    
+    
   </script>
     
     <br>
