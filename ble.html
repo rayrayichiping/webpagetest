@@ -19,6 +19,7 @@
   var connected = false;
   var ledValue;
   var myCharacteristic;
+  var connectedName='USBeacon16.1';
   
     function log(v)
   {
@@ -38,6 +39,7 @@
         })
     .then(device => {
       if(device.name=='USBeacon16.1'){
+        connectedName=device.name;
         log('目前位置:川堂');
         log('點選下一步');
         navigation_floor(goal_building,goal_room);
@@ -66,6 +68,7 @@
         })
     .then(device => {
       if(device.name=='USBeacon'){
+        connectedName=device.name;
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
@@ -93,6 +96,7 @@
         })
     .then(device => {
       if(device.name=='USBeacon1.3'){
+        connectedName=device.name;
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
@@ -151,19 +155,19 @@
     
   function navigation_floor(B,R)
     {
-      if(B=='百齡大樓'&& filterName=='USBeacon16.1')
+      if(B=='百齡大樓'&& connectedName=='USBeacon16.1')
       {
         filterName='USBeacon';
         log(filterName);
         document.querySelector('#connect').onclick = _connect1;
-      if(device.name=='USBeacon')
+      if(connectedName=='USBeacon')
       {
         filterName='USBeacon1.3';
         log('gg1.3')
         document.querySelector('#connect').onclick = _connect2;
       }
         
-      if(device.name=='USBeacon1.3')
+      if(connectedName=='USBeacon1.3')
       {
         if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
         {
@@ -236,7 +240,7 @@
     <div class="col-sm-9">
       <h4 id='state'>請先開起藍芽點選下一步</h4>
       <div id='hint'></div>
-      <h4>狀態0:</h4>
+      <h4>狀態1:</h4>
       <pre id='log'></pre>
     </div>
   </div>
