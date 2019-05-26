@@ -87,8 +87,7 @@
   }
     
   function _connect2() {
-    document.querySelector('#log').textContent = '';
-    alert('請上'+goal_building.silce(1,2)+'樓點選下一步並連接USBeacon1.3');
+    alert('請上'+goal_room.silce(2,3)+'樓點選下一步並連接USBeacon1.3';
     navigator.bluetooth.requestDevice({
       filters: [
     {name:filterName},    
@@ -171,6 +170,7 @@
         
       if(connectedName=='USBeacon1.3')
       {
+        log('finished');
         if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
         {
           log('請左轉並直走');
@@ -242,7 +242,7 @@
     <div class="col-sm-9">
       <h4 id='state'>請先開起藍芽點選下一步</h4>
       <div id='hint'></div>
-      <h4>狀態0:</h4>
+      <h4>狀態1:</h4>
       <pre id='log'></pre>
     </div>
   </div>
