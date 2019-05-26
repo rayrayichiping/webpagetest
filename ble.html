@@ -69,7 +69,7 @@
     .then(device => {
       if(device.name=='USBeacon'){
         connectedName=device.name;
-        log(connectedName);
+        log('connected');
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
@@ -161,10 +161,11 @@
         filterName='USBeacon';
         log(filterName);
         document.querySelector('#connect').onclick = _connect1;
+      }
       if(connectedName=='USBeacon')
       {
         filterName='USBeacon1.3';
-        log('gg1.3');
+        log(filterName);
         document.querySelector('#connect').onclick = _connect2;
       }
         
