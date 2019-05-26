@@ -69,6 +69,7 @@
     .then(device => {
       if(device.name=='USBeacon'){
         connectedName=device.name;
+        log(connectedName);
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
@@ -163,7 +164,7 @@
       if(connectedName=='USBeacon')
       {
         filterName='USBeacon1.3';
-        log('gg1.3')
+        log('gg1.3');
         document.querySelector('#connect').onclick = _connect2;
       }
         
@@ -240,7 +241,7 @@
     <div class="col-sm-9">
       <h4 id='state'>請先開起藍芽點選下一步</h4>
       <div id='hint'></div>
-      <h4>狀態1:</h4>
+      <h4>狀態0:</h4>
       <pre id='log'></pre>
     </div>
   </div>
