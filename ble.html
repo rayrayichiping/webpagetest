@@ -133,7 +133,6 @@
     }
     else
     {
-      document.querySelector('#connect').onclick = _connect;
       document.querySelector('#connect').innerText = "下一步";
       document.querySelector('#goal').onclick = def_goal;
       document.querySelector('#goal').classList.add("btn-primary");
@@ -146,6 +145,7 @@
   
   function def_goal()
   {
+    document.querySelector('#connect').onclick = _connect;
     goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text; 
     log('目的地:'+goal_building+goal_room);
     log('點選下一步');
