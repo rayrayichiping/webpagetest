@@ -151,7 +151,7 @@
   {
     document.querySelector('#connect').onclick = _connect;
     goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
-    floor=goal_room.silce(1,2);
+    floor=goal_room.slice(1,2);
     log('目的地:'+goal_building+goal_room);
     log('點選下一步');
   } 
@@ -245,7 +245,7 @@
     <div class="col-sm-9">
       <h4 id='state'>請先開起藍芽點選下一步</h4>
       <div id='hint'></div>
-      <h4>狀態1:</h4>
+      <h4>狀態0:</h4>
       <pre id='log'></pre>
     </div>
   </div>
