@@ -146,8 +146,9 @@
   
   function def_goal()
   {
-     log('目的地:'+goal_building+goal_room);
-     log('點選下一步');
+    goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text; 
+    log('目的地:'+goal_building+goal_room);
+    log('點選下一步');
   } 
     
   function navigation_floor(B,R)
@@ -219,7 +220,7 @@
   }
     goal_building=buildingSelect.options[buildingSelect.selectedIndex].text;
     roomSelect.innerHTML=Sinner;
-    goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
+    
   }
     changeBuilding(document.getElementById("building-list").selectedIndex);
    
