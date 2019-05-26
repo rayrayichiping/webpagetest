@@ -57,7 +57,7 @@
   }
     
   function _connect1() {
-    alert('請左轉走到樓梯並點選下一步並連接USBeacon1.2');
+    alert('請左轉走到樓梯並點選下一步並連接USBeacon');
     navigator.bluetooth.requestDevice({
       filters: [
     {name:filterName},    
@@ -65,7 +65,7 @@
       optionalServices: [_serv_uuid]
         })
     .then(device => {
-      if(device.name=='USBeacon1.2'){
+      if(device.name=='USBeacon'){
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
@@ -153,12 +153,13 @@
     {
       if(B=='百齡大樓')
       {
-        filterName='USBeacon1.2';
+        filterName='USBeacon';
         log(filterName);
         document.querySelector('#connect').onclick = _connect1;
-      if(device.name=='USBeacon1.2')
+      if(device.name=='USBeacon')
       {
         filterName='USBeacon1.3';
+        log('gg1.3')
         document.querySelector('#connect').onclick = _connect2;
       }
         
