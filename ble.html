@@ -153,7 +153,6 @@
     goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
     floor=goal_room.slice(1,2);
     log('目的地:'+goal_building+goal_room);
-    log(floor);
     log('點選下一步');
   } 
     
@@ -172,7 +171,7 @@
         
       if(connectedName=='USBeacon7.1')
       {
-        if(R.slice(3,4)=='1' || R.slice(3,4)=='2')
+        if(R =='1402' || R =='1403')
         {
           log('請左轉並直走');
         }
