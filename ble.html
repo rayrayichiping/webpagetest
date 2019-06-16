@@ -99,6 +99,7 @@
     .then(device => {
       if(device.name=='USBeacon7.1'){
         connectedName=device.name;
+        log('目前位置:第'+floor+"樓");
         navigation_floor(goal_building,goal_room);
       }
       bluetoothDevice = device;
