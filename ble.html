@@ -60,7 +60,7 @@
   }
     
   function _connect1() {
-    alert('請左轉走到樓梯並點選下一步並連接USBeacon');
+    alert('請左轉走到樓梯後點選下一步並連接USBeacon');
     navigator.bluetooth.requestDevice({
       filters: [
     {name:filterName},    
@@ -71,6 +71,8 @@
       if(device.name=='USBeacon'){
         connectedName=device.name;
         navigation_floor(goal_building,goal_room);
+        log('目前位置:樓梯');
+        log('點選下一步');
       }
       bluetoothDevice = device;
       bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
@@ -151,6 +153,7 @@
     goal_room=document.getElementById("room-list").options[document.getElementById("room-list").selectedIndex].text;
     floor=goal_room.slice(1,2);
     log('目的地:'+goal_building+goal_room);
+    log(floor);
     log('點選下一步');
   } 
     
